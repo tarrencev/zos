@@ -23,6 +23,7 @@ export default class Dependency {
     const packageVersion = this.getPackageFile().version
     this._validateSatisfiesVersion(packageVersion, requirement)
     this.version = packageVersion
+    this.nameAndVersion = `${name}@${packageVersion}`
     this.requirement = requirement || tryWithCaret(packageVersion)
   }
 
@@ -39,6 +40,7 @@ export default class Dependency {
   }
 
   async install() {
+    console.log('about to install', [this.nameAndVersion], process.cwd())
     await npm.install([this.nameAndVersion], { save: true, cwd: process.cwd() })
   }  
 
