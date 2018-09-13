@@ -3,5 +3,8 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.0.0-rc.0"
+  },
+  "dependencies": {
+    "npm": "^6.4.1"
   }
 }
